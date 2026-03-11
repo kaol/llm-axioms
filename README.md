@@ -3,8 +3,8 @@ Gemini and the rest is from Claude. I started asking some questions
 about how LLMs even do what they do and this is the outcome.
 
 You'd better ask an LLM how the axioms work, not me. You can think of
-them to be like an OS for your LLM. Give them to it and start asking
-questions about programming languages, libraries and structured
+them to be like a firmware for your LLM. Give them to it and start
+asking questions about programming languages, libraries and structured
 systems in general. It gives them a metric to use and makes them see
 things in a whole new way. It turns your LLM into a constraint solver.
 

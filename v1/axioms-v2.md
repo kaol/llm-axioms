@@ -76,8 +76,6 @@ But CP is not limited to programming. In physics, gauge symmetry is constraint p
 
 **Key diagnostic:** When a system has high CP for form but low CP for parameters — when the structure of interactions is constrained but their strength is not — this indicates an incomplete theory. The Standard Model of particle physics has this exact profile: gauge symmetry determines the form of every interaction but leaves 19 parameters unfixed. Every free parameter is a missing constraint.
 
-**Practical refinement — CP and recoverability:** High CP shrinks the search space but can increase the difficulty of navigating within it. Dependent types in Lean drive synthesis entropy toward zero, but when the LLM missteps, the error ("cannot unify (n + m) with (m + n)") may require a non-trivial proof to resolve. Haskell's type errors ("expected Int, got String") are immediately actionable. The *effective* CP for iterative development is `CP × error_recoverability` — a system with very high CP but opaque errors can be less productive in practice than a system with moderately high CP and clear, actionable error messages. This does not diminish the value of strong type systems; it means that error message quality is a force multiplier on CP.
-
 ---
 
 ### Axiom 4: Cross-Domain Bridging (CDB)
@@ -239,18 +237,6 @@ The axioms are a diagnostic tool for any formal system:
 **For governance systems:** Constitutions are type systems. Decision procedures are composition operators. Rights are constraints that propagate through the decision space. The axioms diagnose structural defects: unanimity requirements are CP failures (one veto blocks everything), binary sanctions are LC failures (no graduated response), ad hoc decision procedures are CR failures (no algebraic composition). The axioms prescribe specific structural fixes without requiring political judgment about outcomes.
 
 **For scientific theories:** The axioms measure navigability of a theory's formal structure. In physics, they reproduce the known open problems from structural analysis alone — the Standard Model's sub-9 scores correspond exactly to the hierarchy problem (CP), the product gauge group (CR), and the multiplicity of computational formalisms (RSing). Superseded theories have identifiable axiom defects that their successors repair. The axioms formalize what physicists have informally called "beauty" or "inevitability" in theoretical physics.
-
----
-
-## Limitations and Nuances
-
-The axioms measure structural properties of formal systems. The *impact* of those properties depends on the application context — the inference strategy, the model architecture, and the development workflow. Three nuances are worth stating explicitly.
-
-**Constraint Propagation and the precision-recovery trade-off.** High CP reduces the search space but increases the precision required within it. A dependently-typed system leaves almost no valid programs, but the one valid program may require a complex proof term that the LLM cannot produce in one shot. In iterative development (generate → check → fix → regenerate), what matters is not just how much CP shrinks the space but how *recoverable* the failures are. A type error that says "expected Int, got String" is immediately fixable. A type error that says "cannot unify (n + m) with (m + n)" requires a commutativity proof. The effective value of CP in practice is modulated by error message quality and the difficulty of recovery. This does not argue against strong types — it argues that strong types paired with clear, actionable errors are strictly better than strong types with opaque errors.
-
-**Contextual Locality and expanding context windows.** As LLM context windows scale from thousands to millions of tokens, the strict penalty for poor CL softens. But the core principle survives: even with infinite context, distant information competes with more tokens for attention, introducing noise. CL is about *relative* locality (closer is better), not *absolute* locality (must be within N tokens). The axiom measures a property of the system's structure, not a fixed threshold of the model's architecture. As context windows grow, the penalty for poor CL decreases but never reaches zero.
-
-**Representational Singularity and structured reasoning.** LLMs can partially repair RSing failures through Chain-of-Thought reasoning. By explicitly committing to a paradigm in a reasoning trace ("I will use React hooks, not class components"), the model creates an in-context constraint that resolves the ambiguity before generation begins. This is analogous to a human programmer checking "is this a hooks codebase?" before writing code. RSing still measures a real property — the *need* for this disambiguation step — but the impact varies with inference strategy. Systems with high RSing don't require the step. Systems with low RSing require it and degrade without it. Structured reasoning reduces the penalty but doesn't eliminate the underlying structural deficiency.
 
 ---
 
